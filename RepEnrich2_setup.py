@@ -176,6 +176,9 @@ for repname in rep_chr.keys():
             print "Unrecognised Chromosome: "+chr
             pass
     
+    sentinel = os.path.realpath(setup_folder + os.path.sep + newname + ".1.bt2")
+    if os.path.exists(sentinel):
+        continue
 	# Convert metagenome to SeqRecord object (required by SeqIO.write)
     record = SeqRecord(Seq(metagenome, IUPAC.unambiguous_dna), id = "repname", name = "", description = "")
     print "saving repgenome " + newname + ".fa" + " (" + str(k) + " of " + str(nrepgenomes) + ")"
